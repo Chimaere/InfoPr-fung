@@ -1,0 +1,41 @@
+using System;
+class Program:HMGuiApp {
+  static void Main() {
+    ProgTitle("Schwerpunkt 2");
+    
+    // gegebene Arrays
+    double[] Stunden = {0,3.5,8.5,13.5,26.5};
+    double[] Bakterien={2000,2000,500000,500000,1000};
+    string[] Phasen = { "Latenzphase", "Exponentiell Phase", "Stationäre Phase", "Absterbephase" };
+
+
+    // Definition aller Variablen:
+    int ges;
+    double t = GetDouble("Geben sie einen Zeitpunkt in Stunden ein");
+   
+
+    // Programmablauf:
+    ges=Indexsuche(Stunden, t);
+    Put("der Zugehörige Index zu " +t+" Stunden im Zeitarray ist '"+ges+"' und damit ist man in der "+Phasen[ges]);
+  } // Ende von Main()
+
+  // Platz für Ihre eigenen Funktionen:
+
+  static int Indexsuche(Double[] Zeit,double Zeitpunkt)
+  {
+      // Ersten Index rausfinden, in dem die gesuchten Stellet größer ist als ein im Array gespeicherte Zeit
+      int i,ges=-1;
+      for(i=0;i<Zeit.GetLength(0);i++)
+      {
+          if (Zeitpunkt >= Zeit[i])
+          {
+              ges = i;
+          }
+      }
+      
+      //Rückgabe 
+      return ges;
+        
+   }
+  }
+
